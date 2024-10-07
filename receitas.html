@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Receitas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-warning" onload="preencheCatalogo()">
+    <div class="container-fluid">
+        <h1 class="text-center">Catálogo de Receitas</h1>
+        <div id="pnlCatalogo" class="d-flex flex-wrap"></div>
+    </div>
+
+    <script>
+        const receitas = [ 
+
+            {
+                titulo: "Brigadeiro",
+                imagem: "brigadeiro.png.png",
+                preparo: "Junte esses ingredientes numa panela. Adicione o achocolatado e a mateiga, e mexe até criar consistência, ou seja, até começar a engrossar, Despeje tudo numa vasilha de vidro e leve a geladeira. Espere aproximadamente uma hora e meia, e está pronto, é só se deliciar!",
+                ingredientes: [ "1 lata de Leite Condensado","2 colheres de sopa de Margarina","4 colheres de sopa de Nescau"]
+            
+            },
+            {
+                titulo: "Bolo de milho",
+                imagem: "bolodemilho.png",
+                preparo: "Bata no liquidificador, Despeje em uma forma untada com margarina e farinha de trigo, Coloque para assar em forno médio, por aproximadamente 40 minutos, até ficar dourado. ",
+                ingredientes: ["1 lata de milho","Leite (use a mesma quantidade da lata de milho)","Açúcar (use a mesma quantidade da lata de milho)","Milho flocão (use a mesma quantidade da lata de milho)","Óleo de soja (use 1/2 lata de milho)","4 ovo","1 colher (sopa) de fermento em pó."]
+            },
+            {
+                titulo: "Lasanha de Abobrinha",
+                imagem: "lasanha.png",
+                preparo: "Em um refratário coloque um pouco de molho, uma camada de abobrinha, uma camada de molho, uma camada de queijo, uma camada de creme de leite (coloque toda a caixa), abobrinha, molho, queijo, decore com fatias de tomate e salpique orégano Leve ao forno pré-aquecido por 15 a 20 minutos.",
+                ingredientes: ["2 abobrinhas médias","1 caixa de creme de leite","500g de carne moída","1 cebola picada","1/2 pimentão picado","400 g de queijo mussarela fatiado","Sal e orégano a gosto","2 colheres de sopa de óleo","1 tomate picado","uma xícara de extrato de tomate"]
+            }
+        ];
+
+        function getListaIngredientes(receita) {
+            return `<ul>${receita.ingredientes.map(ingrediente => `<li>${ingrediente}</li>`).join('')}</ul>`;
+        }
+
+        function getCard(receita) {
+            return `
+                <div class="card" style="width: 250px; margin: 10px;">
+                    <img src="${receita.imagem}" class="card-img-top" alt="${receita.titulo}">
+                    <div class="card-body">
+                        <h5 class="card-title">${receita.titulo}</h5>
+                        <div class="card-text">
+                            ${getListaIngredientes(receita)}
+                            <hr>
+                            ${receita.preparo}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function preencheCatalogo() {
+            const pnlCatalogo = document.getElementById('pnlCatalogo');
+            pnlCatalogo.innerHTML = receitas.map(receita => getCard(receita)).join('');
+        }
+    </script>
+</body>
+</html>

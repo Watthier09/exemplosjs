@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenando com JavaScript e DOM</title>
+    <!-- Incluindo o Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Estilos CSS adicionais -->
+    <style>
+        .conteudo {
+            max-width: 500px;
+            margin: 0 auto; 
+            padding: 20px; 
+        }
+        body{
+            background-color: rgb(141, 25, 116);
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="conteudo">
+            <h1 class="text-center mb-4" style="color: black;">Usando DOM e JavaScript para Ordenar valores</h1>
+            <div>
+                <input type="number" id="valor" class="form-control mb-2" placeholder="Digite um valor" style="background-color:  rgb(209, 181, 214)">
+                <button class="btn btn-primary mr-2" onclick="add()"  style="background-color: black;">Adicionar</button>
+                <select id="algoritmo" class="form-control mb-2" style="background-color:  rgb(209, 181, 214);">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="quick">Quick Sort</option>
+                </select>                
+                <button class="btn btn-primary mr-2" onclick="ordenar()" style="background-color: black;" >Ordenar</button>
+                <button class="btn btn-primary" onclick="misturar()"  style="background-color: black;">Misturar</button>
+            </div>
+            <ul id="valores" class="list-group mt-3"></ul>
+        </div>
+    </div>
+
+    <script src="ordenando.js" style="color:black ;"></script>
+</body>
+</html>
